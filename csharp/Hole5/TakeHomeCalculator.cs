@@ -5,11 +5,11 @@ namespace Hole5
 {
     public class TakeHomeCalculator
     {
-        private readonly TaxtRate taxtRate;
+        private readonly TaxRate taxRate;
 
-        public TakeHomeCalculator(TaxtRate taxRate)
+        public TakeHomeCalculator(TaxRate taxRate)
         {
-            this.taxtRate = taxRate;
+            this.taxRate = taxRate;
         }
 
         public Money NetAmount(Money first, params Money[] rest)
@@ -23,7 +23,7 @@ namespace Hole5
                 total = total.Plus(next);
             }
 
-            Money tax = taxtRate.Apply(total);
+            Money tax = taxRate.Apply(total);
             return total.Minus(tax);
         }
     }
