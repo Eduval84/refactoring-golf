@@ -2,13 +2,18 @@
 
 namespace Hole5
 {
-    public class TaxtRate
+    public class TaxRate
     {
         private readonly int percent;
 
-        public TaxtRate(int percent)
+        private TaxRate(int percent)
         {
             this.percent = percent;
+        }
+
+        public static TaxRate Of(int percent)
+        {
+            return new TaxRate(percent);
         }
 
         public Money Apply(Money total)
